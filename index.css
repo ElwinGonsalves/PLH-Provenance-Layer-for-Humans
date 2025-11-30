@@ -1,0 +1,242 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global styles for PLH Protocol Demo */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Lock Animation Keyframes */
+@keyframes lockPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Trust Badge Scanning Animation */
+@keyframes scanning {
+  0% {
+    box-shadow: 0 0 10px rgba(74, 222, 128, 0.5), 0 0 20px rgba(74, 222, 128, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(74, 222, 128, 0.8), 0 0 40px rgba(74, 222, 128, 0.5), 0 0 60px rgba(74, 222, 128, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(74, 222, 128, 0.5), 0 0 20px rgba(74, 222, 128, 0.3);
+  }
+}
+
+/* Trust Badge Shatter Animation */
+@keyframes shatter {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  25% {
+    transform: scale(1.1) rotate(-5deg);
+  }
+  50% {
+    transform: scale(0.95) rotate(5deg);
+  }
+  75% {
+    transform: scale(1.05) rotate(-3deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* Digital Certificate Expand Animation */
+@keyframes expandCertificate {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+    max-height: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    max-height: 500px;
+  }
+}
+
+.animate-lockPulse {
+  animation: lockPulse 1.5s ease-in-out;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-in;
+}
+
+.animate-scanning {
+  animation: scanning 2s ease-in-out infinite;
+}
+
+.animate-shatter {
+  animation: shatter 0.5s ease-in-out;
+}
+
+.animate-expandCertificate {
+  animation: expandCertificate 0.3s ease-out forwards;
+}
+
+/* Privacy X-Ray Animation Keyframes */
+/* Mobile (vertical) animations */
+@keyframes biometricMove {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  60% {
+    transform: translateY(80px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(80px);
+    opacity: 0.5;
+  }
+}
+
+@keyframes locationMove {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(80px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(80px);
+    opacity: 0.5;
+  }
+}
+
+@keyframes mathProofMove {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(200px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(200px);
+    opacity: 1;
+  }
+}
+
+/* Desktop (horizontal) animations */
+@media (min-width: 1024px) {
+  @keyframes biometricMove {
+    0% {
+      transform: translateX(0);
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    60% {
+      transform: translateX(120px);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(120px);
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes locationMove {
+    0% {
+      transform: translateX(0);
+      opacity: 0;
+    }
+    30% {
+      opacity: 0;
+    }
+    40% {
+      opacity: 1;
+    }
+    70% {
+      transform: translateX(120px);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(120px);
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes mathProofMove {
+    0% {
+      transform: translateX(0);
+      opacity: 0;
+    }
+    40% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    80% {
+      transform: translateX(280px);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(280px);
+      opacity: 1;
+    }
+  }
+}
+
+.animate-biometricMove {
+  animation: biometricMove 2.5s ease-in-out forwards;
+}
+
+.animate-locationMove {
+  animation: locationMove 2.5s ease-in-out forwards;
+}
+
+.animate-mathProofMove {
+  animation: mathProofMove 3s ease-in-out forwards;
+}
